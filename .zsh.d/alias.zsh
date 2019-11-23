@@ -8,6 +8,8 @@ alias gpl='git pull --rebase origin $(git branch | grep "*" | sed -e "s/^\*\s*//
 alias gs='git status -s'
 alias gd='git diff -b'
 alias gf='git fetch -p'
+alias ga='git add'
+alias gcm='git commit -m'
 
 ### other ###
 # google検索
