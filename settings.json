@@ -1,0 +1,41 @@
+{
+    // 基本設定
+    "editor.fontSize": 13,
+    "editor.renderWhitespace": "all",
+    "markdown.preview.breaks": true,
+    "files.trimTrailingWhitespace": true, // 末尾の空白を自動削除
+    "files.insertFinalNewline": true, // 最終行に改行を自動挿入
+    "editor.renderControlCharacters": true, // 制御文字の表示
+    "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+    // テーマ・アイコン
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Cobalt2",
+    // Python用
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfPath": "/usr/local/bin/yapf", // {which yapf}
+    "python.formatting.yapfArgs": [
+        "--style={indent_dictionary_value: true}"
+    ],
+    "python.sortImports.args": [
+        "-sl"
+    ],
+    "editor.rulers": [
+        80
+    ],
+    "editor.formatOnSave": true, // 保存時の設定
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "editor.matchBrackets": false,
+    "[yaml]": {
+        "editor.autoIndent": true
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 0,
+    "workbench.tree.indent": 20,
+    "editor.minimap.enabled": false
+}

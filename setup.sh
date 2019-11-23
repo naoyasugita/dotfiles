@@ -67,4 +67,13 @@ function command_exists() {
   fi
 }
 
+: "setting vscode" && {
+  info "create symbolic..."
+  SCRIPT_DIR=$(cd $(dirname $0) && pwd)
+  VSCODE_SETTING_DIR=~/Library/Application\ Support/Code/User
+
+  rm "$VSCODE_SETTING_DIR/settings.json"
+  ln -s "$SCRIPT_DIR/settings.json" "${VSCODE_SETTING_DIR}/settings.json"
+}
+
 ok "Complete!"
