@@ -2,6 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export CLICOLOR=true
 export LANG=ja_JP.UTF-8
 export GIT_EDITOR=vim
+export EDITOR=vim
 
 
 # pyenv
