@@ -16,6 +16,17 @@ function command_exists() {
   fi
 }
 
+: "install zsh by brew" && {
+  if ! command_exists zsh; then
+    info "installing zsh..."
+    brew install zsh zsh-completions
+    sudo sh -c 'echo $(brew --prefix)/bin/zsh >> /etc/shells'
+    chsh -s $(brew --prefix)/bin/zsh
+  else
+    warn "zsh is already installed"
+  fi
+}
+
 : "install other packages by brew" && {
   packages=( jq tree wget direnv vim git pyenv pyenv-virtualenv npm mysql caskroom/cask/brew-cask )
   for package in ${packages[@]}; do
