@@ -7,7 +7,6 @@ function command_exists() {
   type "$1" &> /dev/null ;
 }
 
-
 : "install brew" && {
   if ! command_exists brew; then
     info "installing brew..."
@@ -18,7 +17,7 @@ function command_exists() {
 }
 
 : "install other packages by brew" && {
-  packages=( jq tree wget direnv vim git pyenv pyenv-virtualenv npm mysql caskroom/cask/brew-cask)
+  packages=( jq tree wget direnv vim git pyenv pyenv-virtualenv npm mysql caskroom/cask/brew-cask )
   for package in ${packages[@]}; do
     if ! brew list | grep $package &> /dev/null; then
       info "installing ${package}..."
@@ -32,7 +31,7 @@ function command_exists() {
 
 : "install brew cask" && {
   packages=( google-chrome alfred iterm2 google-japanese-ime slack \
-   visual-studio-code flux karabiner  )
+   visual-studio-code flux karabiner clipy )
   for package in ${packages[@]}; do
     if ! brew cask list | grep $package &> /dev/null; then
       info "installing ${package}..."
