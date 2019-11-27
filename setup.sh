@@ -51,7 +51,6 @@ function command_exists() {
       warn "${package} is already installed"
     fi
   done
-  brew cask cleanup
 }
 
 : "install oh-my-zsh" && {
