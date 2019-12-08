@@ -3,7 +3,7 @@ set -euo pipefail
 
 source lib/echos.sh
 
-readonly DOT_FILES=( .zshrc )
+readonly DOT_FILES=( .zshrc .zsh.d )
 
 for file in ${DOT_FILES[@]}; do
   dest=${HOME}/${file}
