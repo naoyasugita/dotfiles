@@ -18,6 +18,7 @@ if command_exists curl || command_exists wget; then
 
     fi | tar zxv
     SCRIPT_DIR=$(cd $(dirname $0) && pwd)
+    mkdir ~/dotfiles
     mv -i "$SCRIPT_DIR/dotfiles-master/*" "$DOTPATH"
     rm -rf dotfiles-master
 else
