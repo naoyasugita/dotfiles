@@ -18,7 +18,7 @@ if command_exists curl || command_exists wget; then
 
     fi | tar zxv
 
-    mv -f dotfiles-master "$DOTPATH"
+    mv -f dotfiles-master/* "$DOTPATH"
 else
     echo "curl or wget required"
 fi
