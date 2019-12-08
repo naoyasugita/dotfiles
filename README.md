@@ -3,8 +3,5 @@ my dotfiles
 
 # install
 ```bash
-git clone https://github.com/naoyasugita/dotfiles.git
-cd dotfiles
-sh deploy.sh
-sh setup.sh
+curl -L raw.github.com/naoyasugita/dotfiles/master/install.sh | bash
 ```
