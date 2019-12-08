@@ -19,7 +19,7 @@ function command_exists() {
 
     fi | tar zxv -C ~/
     mkdir -p ~/dotfiles
-    mv -i ~/dotfiles-master/* "$DOTPATH" $$ rm -rf ~/dotfiles-master
+    mv -i ~/dotfiles-master/* "$DOTPATH" && rm -rf ~/dotfiles-master
   else
     echo "curl or wget required"
   fi
