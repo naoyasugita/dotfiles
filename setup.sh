@@ -7,6 +7,7 @@ function command_exists() {
   type "$1" &> /dev/null ;
 }
 
+info "==============install brew================"
 : "install brew" && {
   if ! command_exists brew; then
     info "installing brew..."
@@ -16,6 +17,7 @@ function command_exists() {
   fi
 }
 
+info "==============install zsh by brew================"
 : "install zsh by brew" && {
   if ! command_exists zsh; then
     info "installing zsh..."
@@ -25,10 +27,14 @@ function command_exists() {
   else
     warn "zsh is already installed"
   fi
+  rm -rf ~/.zsh.d ~/.zshrc
+  ln -s ~/dotfiles/.zsh.d ~/.zsh.d
+  ln -s ~/dotfiles/.zshrc ~/.zshrc
 }
 
+info "==============install other packages by brew================"
 : "install other packages by brew" && {
-  packages=( jq tree wget direnv vim git pyenv pyenv-virtualenv npm mysql caskroom/cask/brew-cask docker )
+  packages=( jq tree wget direnv vim git pyenv pyenv-virtualenv npm mysql docker )
   for package in ${packages[@]}; do
     if ! brew list | grep $package &> /dev/null; then
       info "installing ${package}..."
@@ -40,9 +46,10 @@ function command_exists() {
   brew cleanup
 }
 
+info "==============install brew cask================"
 : "install brew cask" && {
   packages=( google-chrome alfred iterm2 google-japanese-ime slack \
-   visual-studio-code flux karabiner clipy docker)
+   visual-studio-code flux karabiner-elements clipy docker)
   for package in ${packages[@]}; do
     if ! brew cask list | grep $package &> /dev/null; then
       info "installing ${package}..."
@@ -53,25 +60,28 @@ function command_exists() {
   done
 }
 
+info "==============install oh-my-zsh================"
 : "install oh-my-zsh" && {
   if [ ! -e $HOME/.oh-my-zsh ]; then
     info "installing oh-my-zsh..."
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install
-    info "installing zsh theme..."
-    git clone https://github.com/wesbos/Cobalt2-iterm.git
-    cd Cobalt2-iterm
-    cp cobalt2.zsh-theme ~/.oh-my-zsh/themes/
+    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   else
     warn "oh-my-zsh is already installed"
   fi
+  info "installing zsh theme..."
+  git clone https://github.com/wesbos/Cobalt2-iterm.git
+  cd Cobalt2-iterm && cp cobalt2.zsh-theme ~/.oh-my-zsh/themes/
+  cd ../ && rm -rf Cobalt2-iterm
 }
 
+info "==============setting vscode================"
 : "setting vscode" && {
   info "create symbolic..."
   SCRIPT_DIR=$(cd $(dirname $0) && pwd)
   VSCODE_SETTING_DIR=~/Library/Application\ Support/Code/User
 
-  rm "$VSCODE_SETTING_DIR/settings.json"
+  rm -rf "$VSCODE_SETTING_DIR/settings.json"
   ln -s "$SCRIPT_DIR/settings.json" "${VSCODE_SETTING_DIR}/settings.json"
 }
 
