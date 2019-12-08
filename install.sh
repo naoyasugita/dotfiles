@@ -1,14 +1,13 @@
 DOTPATH=~/dotfiles
-GITHUB_URL="https://github.com/naoyasugita/dotfiles"
 
 function command_exists() {
   type "$1" &> /dev/null ;
 }
 
-if command_exists git; then
-    git clone --recursive "${$GITHUB_URL}.git" "$DOTPATH"
+# if command_exists git; then
+#     git clone "https://github.com/naoyasugita/dotfiles.git" "$DOTPATH"
 
-elif has curl || command_exists wget; then
+if command_exists curl || command_exists wget; then
     tarball="https://github.com/naoyasugita/dotfiles/archive/master.tar.gz"
 
     if command_exists curl; then
