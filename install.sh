@@ -16,9 +16,10 @@ if command_exists curl || command_exists wget; then
     elif command_exists wget; then
         wget -O - "$tarball"
 
-    fi | tar zxv
+    fi | tar zxvf dotfiles-master
 
     mv -f dotfiles-master/* "$DOTPATH"
+    rm -rf dotfiles-master
 else
     echo "curl or wget required"
 fi
