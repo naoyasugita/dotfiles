@@ -17,9 +17,10 @@ if command_exists curl || command_exists wget; then
         wget -O - "$tarball"
 
     fi | tar zxv
+    SCRIPT_DIR=$(cd $(dirname $0) && pwd)
     mkdir ~/dotfiles
-    mv -i ~/Downloads/dotfiles-master/* "$DOTPATH"
-    rm -rf ~/Downloads/dotfiles-master
+    mv -i "$SCRIPT_DIR/dotfiles-master/*" "$DOTPATH"
+    rm -rf "$SCRIPT_DIR/dotfiles-master"
 else
     echo "curl or wget required"
 fi
