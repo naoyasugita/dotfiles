@@ -6,7 +6,7 @@ function command_exists() {
 
 : "install dotfiles" && {
   if command_exists git; then
-    git clone "https://github.com/naoyasugita/dotfiles.git" "$DOTPATH"
+    git clone "git@github.com:naoyasugita/dotfiles.git" "$DOTPATH"
 
   elif command_exists curl || command_exists wget; then
     tarball="https://github.com/naoyasugita/dotfiles/archive/master.tar.gz"
