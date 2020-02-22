@@ -36,11 +36,13 @@ info "==============install other packages by brew================"
 : "install other packages by brew" && {
   packages=( jq tree wget direnv vim git pyenv pyenv-virtualenv npm mysql docker )
   for package in ${packages[@]}; do
-    if ! brew list | grep $package &> /dev/null; then
-      info "installing ${package}..."
-      brew install ${package}
-    else
-      warn "${package} is already installed"
+    if command_exists node; then
+      if ! brew list | grep $package &> /dev/null; then
+        info "installing ${package}..."
+        brew install ${package}
+      else
+        warn "${package} is already installed"
+      fi
     fi
   done
   brew cleanup
@@ -73,6 +75,16 @@ info "==============install oh-my-zsh================"
   git clone https://github.com/wesbos/Cobalt2-iterm.git
   cd Cobalt2-iterm && cp cobalt2.zsh-theme ~/.oh-my-zsh/themes/
   cd ../ && rm -rf Cobalt2-iterm
+}
+
+info "==============install flutter================"
+: "install flutter" && {
+  if ! command_exists flutter; then
+    info "installing flutter..."
+    git clone https://github.com/flutter/flutter.git -b stable
+  else
+    warn "flutter is already installed"
+  fi
 }
 
 info "==============setting vscode================"
