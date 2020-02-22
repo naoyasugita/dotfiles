@@ -14,11 +14,7 @@
     // Python用
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.formatting.provider": "yapf",
-    "python.formatting.yapfPath": "/usr/local/bin/yapf", // {which yapf}
-    "python.formatting.yapfArgs": [
-        "--style={indent_dictionary_value: true}"
-    ],
+    "python.formatting.provider": "black",
     "python.sortImports.args": [
         "-sl"
     ],
@@ -37,5 +33,16 @@
     "explorer.confirmDelete": false,
     "window.zoomLevel": 0,
     "workbench.tree.indent": 20,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "terminal.integrated.rendererType": "dom",
+    "explorer.compactFolders": false,
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--ignore-missing-imports",
+        "--follow-imports=silent",
+        "--show-column-numbers",
+        "--ignore_missing_imports=True",
+        "--disallow_untyped_defs=True",
+        "--disallow_untyped_calls=True"
+    ]
 }
