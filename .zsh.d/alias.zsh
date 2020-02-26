@@ -11,6 +11,12 @@ alias gf='git fetch -p'
 alias ga='git add'
 alias gcm='git commit -m'
 
+alias ls='exa'
+alias cat='bat'
+# Dark mode
+# https://github.com/sharkdp/bat
+alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
+
 ### other ###
 # google検索
 alias goo='searchByGoogle'
@@ -19,3 +25,4 @@ function searchByGoogle() {
     [ -z "$1" ] && searchWord=`pbpaste` || searchWord=$1
     open https://www.google.co.jp/search\?q\=$searchWord
 }
+
