@@ -12,7 +12,7 @@ alias ga='git add'
 alias gcm='git commit -m'
 
 alias ls='exa'
-alias cat='bat'
+#alias cat='bat'
 # Dark mode
 # https://github.com/sharkdp/bat
 #alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
