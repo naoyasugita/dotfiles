@@ -15,7 +15,7 @@ alias ls='exa'
 alias cat='bat'
 # Dark mode
 # https://github.com/sharkdp/bat
-alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
+#alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
 
 ### other ###
 # google検索
