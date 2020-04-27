@@ -44,5 +44,10 @@
         "--ignore_missing_imports=True",
         "--disallow_untyped_defs=True",
         "--disallow_untyped_calls=True"
+    ],
+    "dart.warnWhenEditingFilesOutsideWorkspace": false,
+    "dart.flutterAdbConnectOnChromeOs": true,
+    "dart.flutterSdkPaths": [
+        "$HOME/dotfiles/flutter/bin/flutter"
     ]
 }
