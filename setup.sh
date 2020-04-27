@@ -34,7 +34,7 @@ info "==============install zsh by brew================"
 
 info "==============install other packages by brew================"
 : "install other packages by brew" && {
-  packages=( jq tree wget direnv vim git pyenv pyenv-virtualenv npm mysql docker exa bat)
+  packages=( jq tree wget direnv vim git pyenv pyenv-virtualenv mysql docker )
   for package in ${packages[@]}; do
     if command_exists node; then
       if ! brew list | grep $package &> /dev/null; then
