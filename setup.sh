@@ -50,14 +50,25 @@ info "==============install other packages by brew================"
   brew cleanup
 }
 
+info "==============setup node================"
+: "install node by nodebrew" && {
+  if ! command_exists nodebrew; then
+    info "installing nodebrew..."
+    brew install nodebrew
+  else
+    info "install node latest version"
+    nodebrew install-binary stable
+  fi
+}
+
 info "==============install brew cask================"
 : "install brew cask" && {
   packages=( google-chrome alfred iterm2 google-japanese-ime slack \
    visual-studio-code flux karabiner-elements clipy docker android-studio)
   for package in ${packages[@]}; do
-    if ! brew cask list | grep $package &> /dev/null; then
+    if ! brew list --cask | grep $package &> /dev/null; then
       info "installing ${package}..."
-      brew cask install ${package}
+      brew install --cask ${package}
     else
       warn "${package} is already installed"
     fi
