@@ -90,16 +90,6 @@ info "==============install oh-my-zsh================"
   cd ../ && rm -rf Cobalt2-iterm
 }
 
-info "==============install flutter================"
-: "install flutter" && {
-  if ! command_exists flutter; then
-    info "installing flutter..."
-    git clone https://github.com/flutter/flutter.git -b stable
-  else
-    warn "flutter is already installed"
-  fi
-}
-
 info "==============setting vscode================"
 : "setting vscode" && {
   info "create symbolic..."
