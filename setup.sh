@@ -34,15 +34,17 @@ info "==============install zsh by brew================"
 
 info "==============install other packages by brew================"
 : "install other packages by brew" && {
-  packages=( jq tree wget direnv vim git pyenv pyenv-virtualenv mysql docker )
+  packages=( node jq tree wget direnv vim git pyenv pyenv-virtualenv mysql docker yarn nodebew fvm cask)
   for package in ${packages[@]}; do
-    if command_exists node; then
-      if ! brew list | grep $package &> /dev/null; then
-        info "installing ${package}..."
-        brew install ${package}
-      else
-        warn "${package} is already installed"
+    if ! brew list | grep $package &> /dev/null; then
+      info "installing ${package}..."
+      if [ ${package} -eq fvm ]; then
+        info "installing leoafarias/fvm..."
+        brew tap leoafarias/fvm
       fi
+      brew install ${package}
+    else
+      warn "${package} is already installed"
     fi
   done
   brew cleanup
@@ -51,7 +53,7 @@ info "==============install other packages by brew================"
 info "==============install brew cask================"
 : "install brew cask" && {
   packages=( google-chrome alfred iterm2 google-japanese-ime slack \
-   visual-studio-code flux karabiner-elements clipy docker)
+   visual-studio-code flux karabiner-elements clipy docker android-studio)
   for package in ${packages[@]}; do
     if ! brew cask list | grep $package &> /dev/null; then
       info "installing ${package}..."
