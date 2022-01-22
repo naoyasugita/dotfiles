@@ -1,41 +1,49 @@
 {
     // 基本設定
-    "editor.fontSize": 13,
-    "editor.renderWhitespace": "all",
-    "markdown.preview.breaks": true,
-    "files.trimTrailingWhitespace": true, // 末尾の空白を自動削除
-    "files.insertFinalNewline": true, // 最終行に改行を自動挿入
-    "editor.renderControlCharacters": true, // 制御文字の表示
-    "workbench.startupEditor": "none",
-    "workbench.editor.enablePreview": false,
-    // テーマ・アイコン
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Cobalt2",
-    // Python用
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.formatting.provider": "black",
-    "python.sortImports.args": [
-        "-sl"
-    ],
-    "editor.rulers": [
-        80
-    ],
+    "editor.fontSize": 16,
+    "editor.glyphMargin": false,
+    "editor.letterSpacing": 0.7,
+    "editor.lineHeight": 18,
+    "editor.accessibilitySupport": "off",
     "editor.formatOnSave": true, // 保存時の設定
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "editor.matchBrackets": false,
-    "[yaml]": {
-        "editor.autoIndent": true
+    "editor.minimap.enabled": false,
+    "editor.renderControlCharacters": false, // 制御文字の表示
+    "editor.renderWhitespace": "all",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
     },
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "window.zoomLevel": 0,
-    "workbench.tree.indent": 20,
-    "editor.minimap.enabled": false,
-    "terminal.integrated.rendererType": "dom",
     "explorer.compactFolders": false,
+    "workbench.activityBar.visible": false,
+    "terminal.integrated.cursorBlinking": true,
+    "markdown.preview.breaks": true,
+    "files.trimTrailingWhitespace": true, // 末尾の空白を自動削除
+    "files.insertFinalNewline": true, // 最終行に改行を自動挿入
+    "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+    "workbench.tree.indent": 24,
+    // フォント
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.scrollback": 10000,
+    "editor.fontFamily": "Hack Nerd Font",
+    "editor.inlineHints.fontFamily": "Hack Nerd Font",
+    "debug.console.fontSize": 16,
+    // テーマ・アイコン
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Cobalt2",
+    // Python settings
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.sortImports.args": [
+        "-sl"
+    ],
+    "[python]": {
+        "editor.rulers": [
+            80
+        ]
+    },
     "python.linting.mypyEnabled": true,
     "python.linting.mypyArgs": [
         "--ignore-missing-imports",
@@ -45,9 +53,28 @@
         "--disallow_untyped_defs=True",
         "--disallow_untyped_calls=True"
     ],
+    "[yaml]": {
+        "editor.autoIndent": "none"
+    },
+    // dart settings
     "dart.warnWhenEditingFilesOutsideWorkspace": false,
     "dart.flutterAdbConnectOnChromeOs": true,
-    "dart.flutterSdkPaths": [
-        "$HOME/dotfiles/flutter/bin/flutter"
-    ]
+    "dart.debugExternalLibraries": true,
+    "dart.debugSdkLibraries": true,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "dart.previewLsp": true,
+    "dart.showInspectorNotificationsForWidgetErrors": false,
+    "dart.flutterCreateOffline": true,
+    "dart.flutterSdkPath": ".fvm/flutter_sdk"
 }
