@@ -16,7 +16,8 @@ eval "$(pyenv init -)"
 eval "$(direnv hook zsh)"
 
 # flutter
-export PATH="$PATH:$HOME/dotfiles/flutter/bin"
+export PATH="$PATH:$HOME/fvm/default/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
 
 # Androiid SDK
 export ANDROID_HOME="$HOME/Library/Android/sdk"

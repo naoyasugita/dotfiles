@@ -16,7 +16,7 @@ cd ()
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="sunrise"
+ZSH_THEME="amuse"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -28,5 +28,3 @@ ENABLE_CORRECTION="true"
 plugins=(git zsh-autosuggestions)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#676767,bold,underline"
 source $ZSH/oh-my-zsh.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
