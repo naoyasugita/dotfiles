@@ -21,3 +21,6 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 
 # Androiid SDK
 export ANDROID_HOME="$HOME/Library/Android/sdk"
+
+# starship
+eval "$(starship init zsh)"

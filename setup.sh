@@ -7,6 +7,14 @@ function command_exists() {
   type "$1" &> /dev/null ;
 }
 
+function install_powerline() {
+  git clone https://github.com/powerline/fonts.git --depth=1
+  cd fonts
+  ./install.sh
+  cd ..
+  rm -rf fonts
+}
+
 info "==============install brew================"
 : "install brew" && {
   if ! command_exists brew; then
@@ -34,7 +42,7 @@ info "==============install zsh by brew================"
 
 info "==============install other packages by brew================"
 : "install other packages by brew" && {
-  packages=( node jq tree wget direnv vim git pyenv pyenv-virtualenv mysql docker yarn nodebew fvm cask)
+  packages=( node jq tree wget direnv vim git pyenv pyenv-virtualenv mysql docker yarn nodebew fvm cask starship )
   for package in ${packages[@]}; do
     if ! brew list | grep $package &> /dev/null; then
       info "installing ${package}..."
@@ -64,9 +72,16 @@ info "==============setup node================"
 info "==============install brew cask================"
 : "install brew cask" && {
   packages=( google-chrome alfred iterm2 google-japanese-ime slack \
-   visual-studio-code flux karabiner-elements clipy docker android-studio)
+   visual-studio-code flux karabiner-elements clipy docker android-studio font-hack-nerd-font )
   for package in ${packages[@]}; do
     if ! brew list --cask | grep $package &> /dev/null; then
+      if [ ${package} -eq font-hack-nerd-font ]; then
+        # ref: https://yiskw713.hatenablog.com/entry/2021/06/20/143130
+        info "installing font-hack-nerd-font..."
+        brew tap homebrew/cask-fonts
+        brew install --cask font-hack-nerd-font
+        install_powerline
+      fi
       info "installing ${package}..."
       brew install --cask ${package}
     else
