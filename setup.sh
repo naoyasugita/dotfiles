@@ -90,21 +90,6 @@ info "==============install brew cask================"
   done
 }
 
-info "==============install oh-my-zsh================"
-: "install oh-my-zsh" && {
-  if [ ! -e $HOME/.oh-my-zsh ]; then
-    info "installing oh-my-zsh..."
-    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-  else
-    warn "oh-my-zsh is already installed"
-  fi
-  info "installing zsh theme..."
-  git clone https://github.com/wesbos/Cobalt2-iterm.git
-  cd Cobalt2-iterm && cp cobalt2.zsh-theme ~/.oh-my-zsh/themes/
-  cd ../ && rm -rf Cobalt2-iterm
-}
-
 info "==============setting vscode================"
 : "setting vscode" && {
   info "create symbolic..."
