@@ -109,10 +109,15 @@ info "==============setting vscode================"
 : "setting vscode" && {
   info "create symbolic..."
   SCRIPT_DIR=$(cd $(dirname $0) && pwd)
-  VSCODE_SETTING_DIR=~/Library/Application\ Support/Code/User
 
+  while read extension_name
+  do
+    echo `code --force --install-extension $extension_name`
+  done < "./vscode/extensions.txt"
+
+  VSCODE_SETTING_DIR=~/Library/Application\ Support/Code/User
   rm -rf "$VSCODE_SETTING_DIR/settings.json"
-  ln -s "$SCRIPT_DIR/settings.json" "${VSCODE_SETTING_DIR}/settings.json"
+  ln -s "$SCRIPT_DIR/vscode/settings.json" "${VSCODE_SETTING_DIR}/settings.json"
 }
 
 ok "Complete!"
