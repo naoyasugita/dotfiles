@@ -42,7 +42,7 @@ info "==============install zsh by brew================"
 
 info "==============install other packages by brew================"
 : "install other packages by brew" && {
-  packages=( node jq tree wget direnv vim git pyenv pyenv-virtualenv mysql docker yarn nodebew fvm cask starship )
+  packages=( node jq tree wget direnv vim git pyenv pyenv-virtualenv mysql docker yarn nodebew fvm cask starship fzf )
   for package in ${packages[@]}; do
     if ! brew list | grep $package &> /dev/null; then
       info "installing ${package}..."

@@ -23,3 +23,6 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 # starship
 eval "$(starship init zsh)"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
