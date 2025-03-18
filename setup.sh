@@ -19,7 +19,8 @@ info "==============install brew================"
 : "install brew" && {
   if ! command_exists brew; then
     info "installing brew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
   else
     warn "brew is already installed"
   fi
@@ -42,15 +43,15 @@ info "==============install zsh by brew================"
 
 info "==============install other packages by brew================"
 : "install other packages by brew" && {
-  packages=( node jq tree wget direnv vim git pyenv pyenv-virtualenv mysql docker yarn nodebew fvm cask starship fzf )
+  packages=( node jq tree wget direnv vim git mysql docker yarn nodebew fvm cask starship fzf difftastic )
   for package in ${packages[@]}; do
     if ! brew list | grep $package &> /dev/null; then
-      info "installing ${package}..."
       if [ ${package} -eq fvm ]; then
         info "installing leoafarias/fvm..."
         brew tap leoafarias/fvm
       fi
-      brew install ${package}
+      info "installing ${package}..."
+      arch -arm64 brew install ${package}
     else
       warn "${package} is already installed"
     fi
@@ -72,7 +73,7 @@ info "==============setup node================"
 info "==============install brew cask================"
 : "install brew cask" && {
   packages=( google-chrome alfred iterm2 google-japanese-ime slack \
-   visual-studio-code flux karabiner-elements clipy docker android-studio font-hack-nerd-font )
+  visual-studio-code flux karabiner-elements clipy docker font-hack-nerd-font )
   for package in ${packages[@]}; do
     if ! brew list --cask | grep $package &> /dev/null; then
       if [ ${package} -eq font-hack-nerd-font ]; then

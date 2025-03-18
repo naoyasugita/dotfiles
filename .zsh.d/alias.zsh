@@ -6,7 +6,7 @@ alias gps='git push origin $(git branch | grep "*" | sed -e "s/^\*\s*//g")'
 # 現在のブランチをpullする
 alias gpl='git pull --rebase origin $(git branch | grep "*" | sed -e "s/^\*\s*//g")'
 alias gs='git status -s'
-alias gd='git diff -b'
+alias gd='GIT_EXTERNAL_DIFF=difft git diff -b'
 alias gf='git fetch -p'
 alias ga='git add'
 alias gcm='git commit -m'

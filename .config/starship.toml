@@ -1,4 +1,5 @@
 right_format = """$time"""
+command_timeout = 1000
 
 [aws]
 disabled = true
@@ -26,6 +27,11 @@ format = '[\($state( $progress_current of $progress_total)\)]($style) '
 [git_branch]
 format = " [$symbol$branch]($style) "
 
+[git_metrics]
+disabled = false
+added_style = "green"
+deleted_style = "red"
+
 [hostname]
 disabled = true
 
@@ -38,5 +44,11 @@ disabled = false
 time_format = " [ %T ]"
 utc_time_offset = "+9"
 
-[username]
-disabled = true
+# [username]
+# disabled = true
+
+[python]
+detect_files =[ "pyproject.toml" ]
+
+[golang]
+detect_files =[ "go.mod", "go.sum", ".go-version" ]

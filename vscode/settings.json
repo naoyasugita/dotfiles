@@ -1,80 +1,123 @@
 {
-    // 基本設定
+    ///////////////////
+    //    基本設定    //
+    //////////////////
     "editor.fontSize": 16,
-    "editor.glyphMargin": false,
+    "editor.wordWrap": "on",
     "editor.letterSpacing": 0.7,
     "editor.lineHeight": 18,
     "editor.accessibilitySupport": "off",
-    "editor.formatOnSave": true, // 保存時の設定
+    // "editor.formatOnSave": false, // 保存時の設定
     "editor.minimap.enabled": false,
     "editor.renderControlCharacters": false, // 制御文字の表示
     "editor.renderWhitespace": "all",
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.stickyScroll.enabled": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+        "source.organizeImports": "explicit"
     },
+    "editor.renderLineHighlight": "all",
+    "editor.renderLineHighlightOnlyWhenFocus": true,
+    "window.commandCenter": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "explorer.compactFolders": false,
-    "workbench.activityBar.visible": false,
-    "terminal.integrated.cursorBlinking": true,
-    "markdown.preview.breaks": true,
-    "files.trimTrailingWhitespace": true, // 末尾の空白を自動削除
+    // "files.trimTrailingWhitespace": true, // 末尾の空白を自動削除
     "files.insertFinalNewline": true, // 最終行に改行を自動挿入
-    "workbench.startupEditor": "none",
-    "workbench.editor.enablePreview": false,
-    "workbench.tree.indent": 24,
-    // フォント
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.scrollback": 100000,
+    "markdown.preview.breaks": true,
+    ///////////////////
+    //     フォント    //
+    //////////////////
     "terminal.integrated.fontFamily": "Hack Nerd Font",
     "terminal.integrated.fontSize": 16,
-    "terminal.integrated.scrollback": 10000,
     "editor.fontFamily": "Hack Nerd Font",
-    "editor.inlineHints.fontFamily": "Hack Nerd Font",
     "debug.console.fontSize": 16,
-    // テーマ・アイコン
+    ///////////////////
+    //  テーマ・アイコン  //
+    //////////////////
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "Cobalt2",
-    // Python settings
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.sortImports.args": [
-        "-sl"
-    ],
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 24,
+    ///////////////////
+    //   言語別設定   //
+    //////////////////
     "[python]": {
         "editor.rulers": [
-            80
-        ]
-    },
-    "python.linting.mypyEnabled": true,
-    "python.linting.mypyArgs": [
-        "--ignore-missing-imports",
-        "--follow-imports=silent",
-        "--show-column-numbers",
-        "--ignore_missing_imports=True",
-        "--disallow_untyped_defs=True",
-        "--disallow_untyped_calls=True"
-    ],
-    "[yaml]": {
-        "editor.autoIndent": "none"
-    },
-    // dart settings
-    "dart.warnWhenEditingFilesOutsideWorkspace": false,
-    "dart.flutterAdbConnectOnChromeOs": true,
-    "dart.debugExternalLibraries": true,
-    "dart.debugSdkLibraries": true,
-    "[dart]": {
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.rulers": [
-            80
+            119
         ],
-        "editor.selectionHighlight": false,
-        "editor.suggest.snippetsPreventQuickSuggestions": false,
-        "editor.suggestSelection": "first",
-        "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": false
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+        },
+        "editor.formatOnSave": false,
     },
-    "dart.previewLsp": true,
-    "dart.showInspectorNotificationsForWidgetErrors": false,
-    "dart.flutterCreateOffline": true,
-    "dart.flutterSdkPath": ".fvm/flutter_sdk"
+    "python.analysis.typeCheckingMode": "basic",
+    "pythonTestExplorer.testFramework": "pytest",
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "[yaml][yml]": {
+        "editor.autoIndent": "none",
+        "files.trimTrailingWhitespace": false, // 末尾の空白を自動削除
+        "editor.rulers": [
+            34
+        ],
+        "editor.formatOnSave": false,
+        "editor.tabSize": 2,
+    },
+    "[json][jsonc]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.json-language-features",
+    },
+    "[markdown]": {
+        "editor.formatOnSave": false,
+    },
+    "[shellscript]": {
+        "editor.tabSize": 2,
+    },
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1",
+        "Q_NEW_SESSION": "1"
+    },
+    "yaml.customTags": [
+        "!And",
+        "!And sequence",
+        "!If",
+        "!If sequence",
+        "!Not",
+        "!Not sequence",
+        "!Equals",
+        "!Equals sequence",
+        "!Or",
+        "!Or sequence",
+        "!FindInMap",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Join",
+        "!Join sequence",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!Sub sequence",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!ImportValue sequence",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Split sequence"
+    ],
+    "aws.telemetry": false,
+    "testing.automaticallyOpenPeekViewDuringAutoRun": true,
+    "redhat.telemetry.enabled": false,
+    "githubPullRequests.pullBranch": "never",
+    "markdown-preview-enhanced.previewTheme": "github-light.css",
+    "window.zoomLevel": 1,
+    "workbench.activityBar.location": "hidden",
+    "amazonQ.telemetry": false,
 }
