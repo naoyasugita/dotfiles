@@ -43,7 +43,7 @@ info "==============install zsh by brew================"
 
 info "==============install other packages by brew================"
 : "install other packages by brew" && {
-  packages=( node jq tree wget direnv vim git mysql docker yarn nodebrew cask starship fzf difftastic )
+  packages=( node jq tree wget direnv vim git mysql docker yarn nodenv cask starship fzf difftastic )
   for package in ${packages[@]}; do
     if ! brew list | grep $package &> /dev/null; then
       if [ ${package} -eq fvm ]; then
@@ -60,19 +60,18 @@ info "==============install other packages by brew================"
 }
 
 info "==============setup node================"
-: "install node by nodebrew" && {
-  if ! command_exists nodebrew; then
-    info "installing nodebrew..."
-    brew install nodebrew
-  else
-    info "install node latest version"
-    nodebrew install-binary stable
+: "install node by nodenv" && {
+  if ! command_exists nodenv; then
+    info "installing nodenv..."
+    brew install nodenv
   fi
+  info "install node latest version"
+  nodenv install 22.14.0
 }
 
 info "==============install brew cask================"
 : "install brew cask" && {
-  packages=( google-chrome alfred iterm2 google-japanese-ime slack \
+  packages=( alfred iterm2 google-japanese-ime \
   visual-studio-code flux karabiner-elements clipy docker font-hack-nerd-font )
   for package in ${packages[@]}; do
     if ! brew list --cask | grep $package &> /dev/null; then

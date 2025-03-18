@@ -22,9 +22,6 @@ export PATH="$HOME/.pub-cache/bin:$PATH"
 # Androiid SDK
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
-# nodebrew
-export PATH="$PATH:$HOME/.nodebrew/current/bin"
-
 # pipr
 # https://crates.io/crates/pipr
 export PATH="$PATH:$HOME/.cargo/bin"
