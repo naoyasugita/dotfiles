@@ -66,7 +66,10 @@ info "==============setup node================"
     brew install nodenv
   fi
   info "install node latest version"
-  nodenv install 22.14.0
+  # インストール済みの場合はインストールしない
+  if ! nodenv versions | grep 22.14.0 &> /dev/null; then
+    nodenv install 22.14.0
+  fi
 }
 
 info "==============install brew cask================"
