@@ -43,13 +43,9 @@ info "==============install zsh by brew================"
 
 info "==============install other packages by brew================"
 : "install other packages by brew" && {
-  packages=( node jq tree wget direnv vim git mysql docker yarn nodenv cask starship fzf difftastic )
+  packages=( node jq tree wget direnv vim git docker yarn nodenv cask starship fzf difftastic atuin )
   for package in ${packages[@]}; do
     if ! brew list | grep $package &> /dev/null; then
-      if [ ${package} -eq fvm ]; then
-        info "installing leoafarias/fvm..."
-        brew tap leoafarias/fvm
-      fi
       info "installing ${package}..."
       arch -arm64 brew install ${package}
     else
@@ -74,8 +70,8 @@ info "==============setup node================"
 
 info "==============install brew cask================"
 : "install brew cask" && {
-  packages=( alfred iterm2 google-japanese-ime \
-  visual-studio-code flux karabiner-elements clipy docker font-hack-nerd-font )
+  packages=( ghostty raycast google-japanese-ime \
+  visual-studio-code karabiner-elements docker font-hack-nerd-font )
   for package in ${packages[@]}; do
     if ! brew list --cask | grep $package &> /dev/null; then
       if [ ${package} -eq font-hack-nerd-font ]; then

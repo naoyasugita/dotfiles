@@ -31,5 +31,9 @@ export PATH=$GOPATH/bin:$PATH
 
 
 eval "$(atuin init zsh)"
+. "$HOME/.atuin/bin/env"
 
 fpath=($fpath ~/.zsh/completion)
+
+. "$HOME/.local/bin/env"
+export PATH="/opt/homebrew/opt/protobuf@3.20/bin:$PATH"

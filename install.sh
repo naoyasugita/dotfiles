@@ -33,4 +33,6 @@ function command_exists() {
     sh deploy.sh
     sh setup.sh
   fi
+
+  source ~/.zshrc
 }

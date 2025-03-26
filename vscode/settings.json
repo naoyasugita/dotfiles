@@ -79,10 +79,6 @@
     "[shellscript]": {
         "editor.tabSize": 2,
     },
-    "terminal.integrated.env.osx": {
-        "FIG_NEW_SESSION": "1",
-        "Q_NEW_SESSION": "1"
-    },
     "yaml.customTags": [
         "!And",
         "!And sequence",
@@ -118,6 +114,5 @@
     "githubPullRequests.pullBranch": "never",
     "markdown-preview-enhanced.previewTheme": "github-light.css",
     "window.zoomLevel": 1,
-    "workbench.activityBar.location": "hidden",
-    "amazonQ.telemetry": false,
+    "workbench.activityBar.location": "hidden"
 }
